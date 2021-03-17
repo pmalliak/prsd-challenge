@@ -32,12 +32,12 @@ ActiveRecord::Schema.define(version: 2021_03_17_135407) do
     t.boolean "visible", default: false, null: false
     t.date "creation_date"
     t.bigint "author_id"
-    t.bigint "publisler_id"
+    t.bigint "publisher_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["author_id"], name: "index_books_on_author_id"
     t.index ["isbn"], name: "index_books_on_isbn"
-    t.index ["publisler_id"], name: "index_books_on_publisler_id"
+    t.index ["publisher_id"], name: "index_books_on_publisher_id"
   end
 
   create_table "publishers", force: :cascade do |t|

@@ -7,7 +7,7 @@ class CreateBooks < ActiveRecord::Migration[6.0]
       t.boolean     :visible, default: false, null: false
       t.date        :creation_date
       t.references  :author
-      t.references  :publisler
+      t.references  :publisher
       t.timestamps
     end
   end
