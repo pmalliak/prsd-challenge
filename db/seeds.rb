@@ -31,4 +31,10 @@ end
                author_id: Author.pluck(:id).sample,
                publisher_id: Publisher.pluck(:id).sample)
 end
+
+Author.all.each do |author|
+  author.books.order(:created_at).each.with_index(1) do |book, index|
+    book.update_column :position, index
+  end
+end
 puts "Done"
