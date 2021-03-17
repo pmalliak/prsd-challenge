@@ -1,6 +1,5 @@
 json.data do
   json.array! @books do |book|
-    json.id book.id
     json.title book.title
     json.description truncate(book.description, length: 100, omission: '...', separator: ' ')
     json.isbn book.isbn
