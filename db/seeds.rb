@@ -24,10 +24,11 @@ end
 # Create books
 1000.times do |index|
   Book.create!(title: Faker::Book.title,
-               description: Faker::Lorem.paragraph,
+               description: Faker::Lorem.paragraph(random_sentences_to_add: 4),
                creation_date: Faker::Date.between(from: '1900-01-01', to: '2002-01-01'),
                isbn: Faker::Number.unique.number(digits: 10),
-               author_id: rand(1...201),
-               publisher_id: rand(1...201))
+               visible: Faker::Boolean.boolean(true_ratio: 0.8),
+               author_id: Author.pluck(:id).sample,
+               publisher_id: Publisher.pluck(:id).sample)
 end
 puts "Done"
