@@ -2,7 +2,7 @@ class Api::V1::BooksController < ApplicationController
   before_action :set_book, only: [:show, :update, :destroy]
   
   def index
-    @books = Book.visible.published.includes(:author).order("authors.last_name")
+    @books = Book.visible.published.includes(:author).order("authors.last_name", position: :desc)
   end
   
   def show
@@ -38,6 +38,6 @@ class Api::V1::BooksController < ApplicationController
   end
   
   def book_params
-    params.permit(:title, :description, :isbn, :creation_date, :visible, :author_id, :publisher_id)
+    params.permit(:title, :description, :isbn, :creation_date, :visible, :author_id, :publisher_id, :position)
   end
 end
