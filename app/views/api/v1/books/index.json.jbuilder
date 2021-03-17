@@ -6,4 +6,11 @@ json.data do
     json.author_name book.author.try(:full_name)
   end
 end
+json.pagination do
+  json.count @pagy.count
+  json.current @pagy.page
+  json.prev @pagy.prev
+  json.next @pagy.next
+  json.pages @pagy.pages
+end
 json.message "Success"

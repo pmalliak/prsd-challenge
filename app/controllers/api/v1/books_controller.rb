@@ -3,6 +3,7 @@ class Api::V1::BooksController < ApplicationController
   
   def index
     @books = Book.visible.published.includes(:author).order("authors.last_name", position: :desc)
+    @pagy, @books = pagy(@books, items: 50)
   end
   
   def show
