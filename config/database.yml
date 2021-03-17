@@ -1,0 +1,21 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  host: localhost
+  port: 5437
+  username: rails_user
+  password: mysecretpassword
+
+development:
+  <<: *default
+  database: persado_challenge_development
+
+test:
+  <<: *default
+  database: persado_challenge_test
+
+production:
+  <<: *default
+  database: persado_challenge_production
+
