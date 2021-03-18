@@ -6,6 +6,7 @@
 2. Start postgres: `docker-compose up` or `sudo docker-compose up`
 3. Create db: `rails db:create`
 4. Run the migrations: `rails db:migrate`
+5. Seed db: `rails db:seed`
 
 ## Endpoints
 
