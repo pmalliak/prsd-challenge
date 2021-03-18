@@ -6,6 +6,7 @@ class Book < ApplicationRecord
 
   validates :title, presence: true 
   validates :isbn, presence: true, numericality: true, uniqueness: true
+  validates :creation_date, presence: true
   
   scope :visible,    -> {where(:visible => true)}
   scope :published,  -> {joins(:publisher)}
