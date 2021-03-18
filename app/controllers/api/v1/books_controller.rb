@@ -18,7 +18,7 @@ class Api::V1::BooksController < ApplicationController
   
   def update
     if !@book.update(book_params)
-      render :json => {:message => "Error"}, status: 500
+      render :json => {:message => @book.errors.full_messages}, status: 500
     end
   end
   
@@ -26,7 +26,7 @@ class Api::V1::BooksController < ApplicationController
     if @book.destroy
       render :json => {:message => "Success"}, status: 200
     else
-      render :json => {:message => "Error"}, status: 500
+      render :json => {:message => @book.errors.full_messages}, status: 500
     end
   end
   
